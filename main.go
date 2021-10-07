@@ -32,7 +32,7 @@ func main() {
 	flag.Parse()
 
 	getRiseSet := func(t time.Time) (time.Time, time.Time) {
-		srise, sset :=  sunrise.SunriseSunset(*lat, *long, t.Year(), t.Month(), t.Day())
+		srise, sset := sunrise.SunriseSunset(*lat, *long, t.Year(), t.Month(), t.Day())
 		off := time.Duration(*offset) * time.Minute
 		return srise.Add(off).Local(), sset.Add(off).Local()
 	}
